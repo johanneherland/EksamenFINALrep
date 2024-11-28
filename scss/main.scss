@@ -8,6 +8,10 @@ $mainFont: "Montserrat", sans-serif;
     box-sizing: border-box;
 }
 
+html{
+    font-size: calc(1rem + 1vw); /* responsiv typografi - skriftstørrelse justeres ettersom viewfinder endrer seg */
+}
+
 /* definerer SCSS-mixin for enklere gridplassering */
 @mixin grid-placement($column, $row){
     grid-column: #{$column};
@@ -23,11 +27,413 @@ $mainFont: "Montserrat", sans-serif;
 
 /* setter standardfont og fjerner margin på bodyelementet */
 body{
+    background-color: white;
     font-family: $mainFont;
     margin: 0;
+    padding: 0;
 }
 
-#category {
-    background-image: url("https://picsum.photos/400/400");
+#grid-container {
+    display: grid;  /* oppretter CSS Grid */
+    grid-template-columns: 1 fr; /* kun en kolonne for mobil hvor alt innhold skal vises under hverandre */
+    grid-template-rows: repeat(3, auto); /* tre rader for header, main og footer */
 }
 
+/*navigasjonsmeny*/
+.navbar{
+    position: fixed; /* Fikserer nav-menyen til toppen av nettsiden */
+    top: 0; /* justerer for box-sizing */
+    width: 100%; /* setter bredden for nav-meny til hele toppen av siden */
+    background-color: #a9bea5; /* setter bakgrunnsfarge for nav-meny til grønn */
+    z-index: 999; /* sørger for at nav-menyen ligger over alt annet innhold */
+    color: #ffffff; /* setter tekstfarge i nav-meny til hvit */
+    font-size: 0.3em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    /* Venstre del av navbar - søkefelt */
+    .searchfield{
+        padding: none; /* fjerner padding */
+        border: none; /* fjerner border */
+    }
+    /* Midtdel av navbar - Meny */
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5em;
+        list-style: none;
+        & li {
+            text-align: center;
+            list-style: none;
+        }
+        color: white;
+        text-decoration: none;
+        padding: 0.5em;
+        font-size: 1.5em;
+    }
+    /* Høyre del av navbar - ikoner */
+    .navbar-icons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1.5em;
+        list-style: none;
+        font-size: 2em;}
+        & li {
+            text-align: center;
+            list-style: none;}
+        & a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-decoration: none;}
+}
+
+#logo {
+    height: 50px;
+    width: auto;
+    border-radius: 100%;
+}
+
+#banner {
+    grid-column: 1/2; /* plasserer header i kolonnen */ 
+    grid-row: 1/2; /* plasserer header i første rad */ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* stiller innhold på toppen av beholderen */
+    align-items: flex-end; /* stiller innhold til høyre i beholderen */
+    background-color: #c9cec3;
+    padding: 15rem; /* Adjust the padding as needed */
+    width: 100%; /* Ensure it takes full width */
+    
+    & a {
+    padding: 0.5em;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 0.5rem;
+    text-decoration: none;}
+}
+
+/* layout for produktseksjonen */
+#popProd {
+    padding: 2em;
+    background-color: #f9f9f9;
+    text-align: center;
+    &h2{
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+    }
+    &p{
+        font-size: 1em;
+        margin-bottom: 1em;
+    }
+    &button {
+        padding: 0.5em;
+        background-color: transparent;
+        border: 1px solid;
+        border-radius: 5px;
+        border-color: #000000;
+        font-size: 1rem;
+        text-decoration: none;
+        color: #000000;
+    }
+    &button:hover {
+        background-color: #a9bea5;
+    }
+    
+}
+
+#produkt {
+    justify-items: center; /* sentrerer innholdet i produktkortene vertikalt */
+    margin-top: 2em;
+    position: relative; /* To position the heart icon over the image */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+    /* hjerteikoner for favorisering */
+    & i {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+        color: #a9bea5;
+        cursor: pointer;
+        transition: color 0.3s;
+        & :hover{
+            color: #8b9c87; /* Hoveringseffekt for hjerteikoner */
+        }
+    }
+    & :hover{
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    & h3 {
+        font-size: 1.3em;
+        margin-top: 1em;
+        color: #333;
+    }
+    & li {
+        list-style: none;
+        font-size: 1em;
+        color: #555;
+    }
+    & #pris {
+        font-weight: bold;
+        margin-top: 0.5em;
+    }
+    & #merke {
+        font-style: italic;
+        color: #7f8d81;
+        text-decoration: none;
+        }
+    & img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+#popCat {
+    padding: 2em;
+    background-color: #f9f9f9;
+    text-align: center;
+    & p {
+        font-size: 1.1em;
+        margin-bottom: 1em;
+    }
+    & a {
+        font-size: 1em;
+        text-decoration: none;
+        font-weight: bold;
+        & :hover {
+            text-decoration: underline;
+            color: #8b9c87;
+        }
+    }
+    /* kategorikort */
+    .category {
+        position: relative;
+        width: 30%; /* hvert kort tar opp 30% av beholderen */
+        height: 250px; /* fikset høyde for kategorikort */
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        & .category-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-color 0.3s ease;
+        }
+        & h3 {
+            position: absolute;
+            bottom: 15px; /* plasserer kategoritittel på bunn */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* lett skygge for å øke synlighet */
+            margin: 0;
+            z-index: 1;
+            }
+        & :hover {
+            transform: scale(1.05); /* Lett zoom ved hover */
+        }
+    }
+}
+
+/* reviews */
+#reviews {
+    background-color: #f9f9f9;
+        text-align: center;
+        & h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        & p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        & a {
+            font-size: 1em;
+            color: #8b9c87;
+            text-decoration: none;
+            font-weight: bold;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    &.review {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.5em;
+        width: 100%;
+        max-width: 350px; /* Limit the card width */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        & :hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        & img {
+            width: 100%;
+            height: 200px;
+            max-width: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+        }
+        & h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 1em;
+        }
+        & p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6em;
+            text-align: center;
+        }
+    }
+}
+/*Avbryt-knapp*/
+.cancel-button {
+    text-decoration: none;
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    color: #222f25;
+}
+
+#footer {
+    width: 100%;
+    background-color: #222f25; /* Mørkere bakgrunn for footer */
+    color: #fff; /* Hvit font for god kontrast mot bakgrunn i footer */
+    padding: 2em 1em;
+    display: grid; /* Use grid for the footer */
+    grid-template-rows: auto 1fr; /* Første rad av footer til  */
+    gap: 1em;
+
+    &section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 0.5em;
+    }
+    & i {
+        font-size: 1em;
+    }
+
+    &a {
+        color: #fff;
+        text-decoration: none;
+        & hover{
+            text-decoration: underline;
+        }
+    }
+    & li {
+        list-style: none;
+    }
+}
+
+/* STYLING AV PRODUKTSIDE */
+
+.breadcrumb {
+    display: flex;
+    gap: 0.5em; /* Space between breadcrumb links */
+    background-color: #a9bea5;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border-bottom: 1px solid #ddd; /* Optional: Visual separation */
+    position: relative;
+    margin-top: 6em;
+    & a {
+        text-decoration: none;
+        color: #334626;
+        & :hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.product-info {
+    margin-top: 0.5em; /* Moves content further down */
+}
+
+/* produktforslag */
+.produktforslag {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2em;
+    gap: 1.5em;
+    & article {
+        flex: 1 1 calc(25% - 1.5em); /* Four items per row with spacing */
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1em;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        & :hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+    }
+    & img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1em;
+    }
+    & li {
+        margin-bottom: 0.5em;
+        & ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    & a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+#skip-to-top {
+    position: fixed;    /* sørger for at den alltid ligger over andre elementer */
+    border-radius: 50%; /* rund form på boks */
+    bottom: 20px;      /* gir 20px rom fra bunn */
+    right: 20px;       /* gir 20px rom fra høyre side */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* lett skygge for synlighet */
+    z-index: 1000;     /* Make sure it stays on top of other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: #000000;
+    &hover{
+        background-color: #a9bea5; /* lysere bakgrunn ved hovering */
+        transform: translateY(-5px); /* lett bevegelse ved hovering */
+    }
+}
