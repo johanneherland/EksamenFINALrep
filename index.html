@@ -12,7 +12,7 @@
 <body>
     <!-- Definerer en grid-container -->
     <div id="grid-container">
-        <!--NAVIGASJON MED LOGO plassert i midten av menypunktene og ikoner-->
+    <header>
     <nav class="navbar">
         <!--SØKEFELT-->
         <form class="searchfield"> 
@@ -56,14 +56,15 @@
             </li>
         </ul>
     </nav>
-
-    <!-- banner til hovedsiden med overskrift, ingress og link -->
-    <header id="banner">
-        <h1>Velkommen til siden!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero.</p>
-        <a href="#">Les mer</a>
+        <section id="banner">
+        <!-- banner til hovedsiden med overskrift, ingress og link -->
+            <h1>Velkommen til siden!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero.</p>
+            <a href="#">Les mer</a>
+        </section>
     </header>
 
+    <main>
     <!-- Seksjon for populære produkter med overskrift, ingress, filtreringsknapper og produktkort -->
     <section id="popProd">
         <h2>Populære produkter</h2> 
@@ -140,6 +141,98 @@
             </ul>
         </article>
     </section>
+
+    <!-- Seksjon for populære kategorier med overskrift, ingress og produktkort -->
+    <section id="popCat">
+        <h2>Populære kategorier</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero.</p>
+        <article class="category">
+            <h3>Alle klær</h3>
+        </article>
+        <article class="category">
+            <h3>Bukser</h3>
+        </article>
+        <article class="category">
+            <h3>Kjoler</h3>
+        </article>
+        <article class="category">
+            <h3>Topper</h3>
+        </article>
+        <article class="category">
+            <h3>Gensere</h3>
+        </article>
+        <article class="category">
+            <h3>Sko</h3>
+        </article>
+    </section>
+
+    <!--seksjon med anmeldelser: overskrift, ingress, link og selve anmeldelsene-->
+    <section id="reviews">
+        <h2>Anmeldelser</h2> <!-- Underoverskrift for kundeanmeldelser -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero.</p> <!-- Kort ingress for å beskrive anmeldelsene -->
+        <a href="#reviews">Les flere anmeldelser</a> <!-- Link for å lese flere anmeldelser -->
+        <article class="review">
+            <img src="https://picsum.photos/400/400" alt="anmelderbilde"> <!-- Anmelderbilde -->
+            <h3>Lorem impsum</h3> <!-- Overskrift for anmeldelse -->
+            <p>dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent lobortis nulla ultricies, maximus nisi feugiat, euismod lacus.</p> <!--Avsnitt med selve anmeldelsen-->
+        </article>
+        <article class="review">
+            <img src="https://picsum.photos/400/400" alt="anmelderbilde"> <!-- Anmelderbilde -->
+            <h3>Lorem impsum</h3> <!-- Overskrift for anmeldelse -->
+            <p>dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent lobortis nulla ultricies, maximus nisi feugiat, euismod lacus.</p> <!--Avsnitt med selve anmeldelsen-->
+        </article>
+        <article class="review">
+            <img src="https://picsum.photos/400/400" alt="anmelderbilde"> <!-- Anmelderbilde -->
+            <h3>Lorem impsum</h3> <!-- Overskrift for anmeldelse -->
+            <p>dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent lobortis nulla ultricies, maximus nisi feugiat, euismod lacus.</p> <!--Avsnitt med selve anmeldelsen-->
+        </article>
+        <article class="review">
+            <img src="https://picsum.photos/400/400" alt="anmelderbilde"> <!-- Anmelderbilde -->
+            <h3>Lorem impsum</h3> <!-- Overskrift for anmeldelse -->
+            <p>dolor sit amet, consectetur adipiscing elit. Cras imperdiet libero at ligula gravida consectetur. Suspendisse eget vulputate sem, vel finibus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent lobortis nulla ultricies, maximus nisi feugiat, euismod lacus.</p> <!--Avsnitt med selve anmeldelsen-->
+        </article>
+    </section>
+    </main>
+
+    <footer id="footer">
+        <section><!--Logo og ingress-->
+            <a href="index.html" class="logo"><img src="https://picsum.photos/400/400" alt="logo"></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section> 
+        <section> <!-- Kontaktinfo -->
+            <h4>Kontakt</h4>
+            <i class="fa-solid fa-map" aria-label="adresse-ikon"></i><p> B R A Veien 4, 1757 Halden</p>
+            <i class="fa-solid fa-phone" aria-label="telefon-ikon"></i><p> 69 60 80 00</p>
+            <i class="fa-solid fa-envelope" aria-label="epost-ikon"></i> <p> halden@hiof.no</p>
+            <i class="fa-solid fa-clock" aria-label="åpningstid-ikon"></i>  <p> 08:00 - 17:00</p>
+        </section> 
+        <section> <!-- Snarveier -->
+            <h4>Snarveier</h4>
+            <a href="index.html"> Hjem</a> <!-- Link tilbake til hovedside -->
+            <a href="#popProd"> Populære produkter</a> <!-- Link til seksjonen med populære produkter -->
+            <a href="#popCat"> Populære kategorier</a> <!-- Link til seksjonen med populære kategorier -->
+            <a href="#reviews"> Anmeldelser</a> <!-- Link til seksjonen med anmeldelser -->
+            <a href="checkout.html"> Handlekurv</a> <!-- Link til handlekurv -->
+            <a href="#"> Tilgjengelighetserklæring</a>
+        </section> 
+        <section> 
+            <h4>Sosiale medier</h4>
+            <ul class="some"> <!-- Sosiale medier -->
+                <a href="facebook.com">
+                <li><i class="fa-brands fa-facebook-f" aria-label="Facebook-ikon"></i></li> <!-- Facebook-ikon -->
+                </a>
+                <a href="instagram.com">
+                <li><i class="fa-brands fa-instagram" aria-label="Instagram-ikon"></i></li> <!-- Instagram-ikon -->
+                </a>
+                <a href="linkedin.com">
+                <li><i class="fa-brands fa-linkedin" aria-label="Linkedin-ikon"></i></li> <!-- Linkedin-ikon -->
+                </a>
+                <a href="pinterest.com">
+                <li><i class="fa-brands fa-pinterest-p" aria-label="Pinterest-ikon"></i></li> <!-- Pinterest-ikon -->
+                </a>
+            </ul>
+        </section>
+    </footer>
 
     </div>
 </body>
