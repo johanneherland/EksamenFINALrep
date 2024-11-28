@@ -8,12 +8,20 @@ $mainFont: "Montserrat", sans-serif;
     box-sizing: border-box;
 }
 
-/* Definerer SCSS-mixin for enklere gridplassering */
+/* definerer SCSS-mixin for enklere gridplassering */
 @mixin grid-placement($column, $row){
     grid-column: #{$column};
     grid-row: #{$row};
 }
 
+/* begrenser sidens bredde til max 1200px for lesbarhet og sentrerer horisontalt */
+#container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* setter standardfont og fjerner margin på bodyelementet */
 body{
     font-family: $mainFont;
     margin: 0;
